@@ -1,6 +1,6 @@
 # Japanese Mahjong Paifu 
 
-# Reference Implementation of Parser and Writer
+# Reference Implementation of Parser and Writer, written in Scala
 
 This is the repository for reference implementation of parser and writer modules for processing .jmjp files. 
 

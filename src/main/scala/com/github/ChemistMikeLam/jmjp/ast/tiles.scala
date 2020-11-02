@@ -1,8 +1,6 @@
 package com.github.ChemistMikeLam.jmjp 
 package ast 
 
-import scala.collection.immutable.ArraySeq 
-
 sealed trait NumTileSuit 
 object NumTileSuit { 
   case object Circle extends NumTileSuit 
@@ -52,13 +50,13 @@ object RelDir {
 
 sealed trait Furo 
 object Furo { 
-  case class Chi(in: Tile.Type.Normal, hand: ArraySeq[Tile.Type.Normal]) extends Furo 
-  case class Pon(in: Tile.Type.Normal, hand: ArraySeq[Tile.Type.Normal], from: RelDir) extends Furo 
+  case class Chi(in: Tile.Type.Normal, hand: List[Tile.Type.Normal]) extends Furo 
+  case class Pon(in: Tile.Type.Normal, hand: List[Tile.Type.Normal], from: RelDir) extends Furo 
   sealed trait Kan extends Furo 
   object Kan { 
-    case class Daiminkan(in: Tile.Type.Normal, hand: ArraySeq[Tile.Type.Normal], from: RelDir) extends Furo 
-    case class Kakan(kanIn: Tile.Type.Normal, ponIn: Tile.Type.Normal, hand: ArraySeq[Tile.Type.Normal], from: RelDir) extends Furo 
-    case class Ankan(tiles: ArraySeq[Tile.Type.Normal]) extends Furo 
+    case class Daiminkan(in: Tile.Type.Normal, hand: List[Tile.Type.Normal], from: RelDir) extends Furo 
+    case class Kakan(kanIn: Tile.Type.Normal, ponIn: Tile.Type.Normal, hand: List[Tile.Type.Normal], from: RelDir) extends Furo 
+    case class Ankan(tiles: List[Tile.Type.Normal]) extends Furo 
   } 
 } 
 
@@ -66,9 +64,9 @@ case class Hand(inHand: List[Tile.Type.Normal], tsumo: Option[Tile.Type.Normal],
 
 sealed trait DrawAct extends Tile with Tile.Type.Action with Tile.Use.Draw 
 object DrawAct { 
-  case class Chi(hand: ArraySeq[Tile.Type.Normal]) extends DrawAct 
-  case class Pon(hand: ArraySeq[Tile.Type.Normal]) extends DrawAct 
-  case class Daiminkan(hand: ArraySeq[Tile.Type.Normal]) extends DrawAct 
+  case class Chi(hand: List[Tile.Type.Normal]) extends DrawAct 
+  case class Pon(hand: List[Tile.Type.Normal]) extends DrawAct 
+  case class Daiminkan(hand: List[Tile.Type.Normal]) extends DrawAct 
   case class Rinshan(in: Tile.Type.Normal) extends DrawAct 
   case object Ron extends DrawAct 
   case object Oya extends DrawAct 
@@ -79,7 +77,7 @@ object DiscardAct {
   case object Tsumogiri extends DiscardAct 
   case object Karagiri extends DiscardAct 
   case class Kakan(hand: Tile.Type.Normal) extends DiscardAct 
-  case class Ankan(hand: ArraySeq[Tile.Type.Normal]) extends DiscardAct 
+  case class Ankan(hand: List[Tile.Type.Normal]) extends DiscardAct 
   case object Tsumo extends DiscardAct 
   case class Riichi(out: Tile.Type.Normal) extends DiscardAct 
 } 

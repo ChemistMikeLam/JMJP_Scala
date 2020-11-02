@@ -32,48 +32,6 @@ package object ast {
 
   case class PointTour(personal: Point, team: Point) 
 
-  sealed trait NumTileSuit 
-  object NumTileSuit { 
-    case object Circle extends NumTileSuit 
-    case object Bamboo extends NumTileSuit 
-    case object Character extends NumTileSuit 
-  } 
-
-  sealed trait Tile 
-  object Tile { 
-    case class Num(suit: NumTileSuit, num: Int) extends Tile 
-    sealed trait Honor extends Tile 
-    object Honor { 
-      case class Wind(wind: ast.Wind) extends Honor 
-      sealed trait Dragon extends Honor 
-      object Dragon { 
-        case object White extends Dragon 
-        case object Green extends Dragon 
-        case object Red extends Dragon 
-      } 
-    } 
-    case object Unknown extends Tile 
-  } 
-
-  sealed trait RelDir 
-  object RelDir { 
-    case object Kamicha extends RelDir 
-    case object Toimen extends RelDir 
-    case object Shimocha extends RelDir 
-  } 
-
-  sealed trait Furo 
-  object Furo { 
-    case class Chi(in: Tile, hand: (Tile, Tile)) extends Furo 
-    case class Pon(in: Tile, hand: (Tile, Tile), from: RelDir) extends Furo 
-    sealed trait Kan extends Furo 
-    object Kan { 
-      case class DaiMinKan(in: Tile, hand: (Tile, Tile, Tile), from: RelDir) extends Furo 
-      case class KaKan(kanIn: Tile, ponIn: Tile, hand: (Tile, Tile), from: RelDir) extends Furo 
-      case class AnKan(tiles: (Tile, Tile, Tile, Tile)) extends Furo 
-    } 
-  } 
-
   case class Hand(inHand: List[Tile], tsumo: Option[Tile], furo: List[Furo]) 
 
   sealed trait TourName 

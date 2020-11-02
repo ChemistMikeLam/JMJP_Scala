@@ -84,3 +84,5 @@ object DiscardAct {
   case class Riichi(out: Tile.Type.Normal) extends DiscardAct 
 } 
 
+case class FrameAct(seat: Wind, draw: Tile.Use.Draw, discard: Tile.Use.Discard) 
+

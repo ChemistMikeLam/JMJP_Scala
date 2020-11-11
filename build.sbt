@@ -15,14 +15,16 @@ Compile / doc / scalacOptions ++= Seq(
   "-groups" 
 ) 
 
+Compile / doc / target := baseDirectory.value / "doc" / ("scala-" + scalaVersionString.value)
+
 autoAPIMappings := true 
 
 apiURL := 
   Some( 
     url( 
-      "https://github.com/ChemistMikeLam/JMJP_Scala/target/scala-" + 
+      "https://github.com/ChemistMikeLam/JMJP_Scala/doc/scala-" + 
       scalaVersionString.value + 
-      "/api/" 
+      "/" 
     ) 
   ) 
 

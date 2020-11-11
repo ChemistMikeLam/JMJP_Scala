@@ -14,9 +14,3 @@ lib_managed/
 src_managed/ 
 project/boot/ 
 project/plugins/project/ 
-# Re-include api documentations 
-!/target/
-/target/*
-!/target/scala-*/
-/target/scala-*/*
-!/target/scala-*/api/

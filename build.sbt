@@ -22,7 +22,7 @@ autoAPIMappings := true
 apiURL := 
   Some( 
     url( 
-      "https://github.com/ChemistMikeLam/JMJP_Scala/docs/scala-" + 
+      "https://ChemistMikeLam.github.io/JMJP_Scala/scala-" + 
       scalaVersionString.value + 
       "/" 
     ) 
